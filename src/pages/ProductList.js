@@ -17,6 +17,7 @@ export default function ProductList() {
       .catch((err) => {
         console.log(err.message);
       });
+      console.log("HOST: ", HOST);
   }, []);
 
   return (
