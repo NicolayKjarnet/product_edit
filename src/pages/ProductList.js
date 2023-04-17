@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { CgAdd, CgPen } from "react-icons/cg";
 
-const HOST = process.env.REACT_APP_HOST || "http://192.168.1.127:3001";
+const HOST = process.env.REACT_APP_HOST || "https://product-edit.onrender.com";
 
 export default function ProductList() {
   const [location, setLocation] = useLocation();

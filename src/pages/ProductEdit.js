@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useRoute } from "wouter";
 
-const HOST = process.env.REACT_APP_HOST || "http://192.168.1.127:3001";
+const HOST = process.env.REACT_APP_HOST || "https://product-edit.onrender.com";
 
 export default function ProductList() {
   const [, setLocation] = useLocation();
