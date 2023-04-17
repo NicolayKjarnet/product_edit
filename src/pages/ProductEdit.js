@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useRoute } from "wouter";
 
-const HOST = process.env.HOST || "http://192.168.1.127";
-const PORT = process.env.PORT || 3001;
+const HOST = process.env.HOST || "http://192.168.1.127:3001";
 
 export default function ProductList() {
   const [, setLocation] = useLocation();
@@ -16,7 +15,7 @@ export default function ProductList() {
   useEffect(() => {
     // We only lookup if we have a vaild ID
     if (params && params.id) {
-      fetch(HOST + ":" + PORT + "/products/" + params.id)
+      fetch(HOST + "/products/" + params.id)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -61,7 +60,7 @@ export default function ProductList() {
         _id: ID,
       };
 
-      fetch(HOST + ":" + PORT + "/products/", {
+      fetch(HOST + "/products/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,7 +87,7 @@ export default function ProductList() {
 
   const deleteProduct = () => {
     if (ID && name.length > 0 && name.length < 50) {
-      fetch(HOST + ":" + PORT + "/products/" + ID, {
+      fetch(HOST + "/products/" + ID, {
         method: "DELETE", // *GET, POST, PUT, DELETE, etc.
         headers: {
           "Content-Type": "application/json",
@@ -109,8 +108,6 @@ export default function ProductList() {
     if (ID && name.length > 0 && name.length < 50) {
       fetch(
         HOST +
-          ":" +
-          PORT +
           "/products/" +
           ID +
           "?name=" +

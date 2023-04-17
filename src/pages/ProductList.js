@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { CgAdd, CgPen } from "react-icons/cg";
 
-const HOST = process.env.HOST || "http://192.168.1.127";
-const PORT = process.env.PORT || 3001;
+const HOST = process.env.HOST || "http://192.168.1.127:3001";
 
 export default function ProductList() {
   const [location, setLocation] = useLocation();
   const [productList, setProductList] = useState([]);
   useEffect(() => {
-    fetch(HOST + ":" + PORT + "/products")
+    fetch(HOST + "/products")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
